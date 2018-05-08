@@ -1,0 +1,17 @@
+{
+  "name": "stalkwatch",
+  "version": "1.0.0",
+  "description": "A bot that tells you your rank, and how shitty are you",
+  "main": "index.js",
+  "dependencies": {
+    "discord.io": "^2.5.3",
+    "snekfetch": "^4.0.0",
+    "winston": "^2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michele De Quattro",
+  "license": "ISC"
+}
