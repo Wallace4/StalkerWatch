@@ -1,4 +1,4 @@
-const { prefix } = require('../config.json');
+const config = require("../config.js");
 
 module.exports = {
 	name: 'help',
@@ -14,7 +14,7 @@ module.exports = {
 		if (!args.length) {
 			data.push('scopri tutti i miei segreti, ma un cucchiaino di affari tuoi no eh?');
 			data.push(commands.map(command => command.name).join(', '));
-			data.push(`\nPuoi mandarmi \`${prefix}help [command name]\` per avere info su uno specifico comando!`);
+			data.push(`\nPuoi mandarmi \`${config.prefix}help [command name]\` per avere info su uno specifico comando!`);
 		}
 		else {
 			if (!commands.has(args[0])) {
@@ -27,7 +27,7 @@ module.exports = {
 			
 			if (command.description) data.push(`**Description:** ${command.description}`);
 			if (command.aliases) data.push(`**Aliases:** ${command.aliases.join(', ')}`);
-			if (command.usage) data.push(`**Usage:** ${prefix}${command.name} ${command.usage}`);
+			if (command.usage) data.push(`**Usage:** ${config.prefix}${command.name} ${command.usage}`);
 			
 			data.push(`**Cooldown:** ${command.cooldown || 3} second(s)`);
 		}

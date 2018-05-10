@@ -3,9 +3,12 @@ const fs = require('fs');
 const Discord = require('discord.js');
 //include la libreria config dove sono tutte le variabili costanti
 //const config = require('./config.json');
-const { prefix, token } = require('./config.json');
+//const { prefix, token } = require('./config.json');
 //questo crea un nuovo oggetto discord client
 const client = new Discord.Client();
+
+client.config = require("./config.js");
+
 client.commands = new Discord.Collection();
 //ti restituisce una lista con i nomi dei file nella cartella
 const commandFiles = fs.readdirSync('./commands'); 
@@ -17,11 +20,10 @@ for (const file of commandFiles) { //ti mette in loop gli include in pratica
 
 //fa l'echo dal canale alla console
 client.on('message', message => {
-	console.log(message.content);
 	
-	if (!message.content.startsWith(prefix) || message.author.bot) return; // se sei un bot o se non inizi con ! muori
+	if (!message.content.startsWith(client.config.prefix) || message.author.bot) return; // se sei un bot o se non inizi con ! muori
 	
-	const args = message.content.slice(prefix.length).split(/ +/);
+	const args = message.content.slice(client.config.prefix.length).split(/ +/);
 	const commandName = args.shift().toLowerCase();
 	
 	const command = client.commands.get(commandName)
@@ -49,4 +51,4 @@ client.on('ready', () => {
 });
 
 //fa il login al bot con il token
-client.login(token);
+client.login(client.config.token);
