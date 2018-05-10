@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "description": "A bot that tells you your rank, and how shitty are you",
   "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js" 
+  },
   "dependencies": {
-    "discord.io": "^2.5.3",
+    "discord.js": "^11.3.2",
     "snekfetch": "^4.0.0",
     "winston": "^2.4.2"
   },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "engines": {
+    "node": "8.x"
   },
   "author": "Michele De Quattro",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
 }
