@@ -7,6 +7,10 @@ const Discord = require('discord.js');
 //questo crea un nuovo oggetto discord client
 const client = new Discord.Client();
 
+const http = require('http');
+const express = require('express');
+const app = express();
+
 client.config = require("./config.js");
 
 client.commands = new Discord.Collection();
@@ -17,6 +21,20 @@ for (const file of commandFiles) { //ti mette in loop gli include in pratica
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
+
+app.get("/", (request, response) => {
+  
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+  
+});
+
+app.listen(process.env.PORT);
+
+  setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+  
+}, 280000);
 
 //fa l'echo dal canale alla console
 client.on('message', message => {

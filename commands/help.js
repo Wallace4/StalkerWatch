@@ -3,7 +3,7 @@ const config = require("../config.js");
 module.exports = {
 	name: 'help',
 	description: 'Mostra la lista comandi',
-	aliases: ['commands'],
+	aliases: ['commands', 'info'],
     usage: '[command name]',
     cooldown: 5,
 	execute(message, args) {
