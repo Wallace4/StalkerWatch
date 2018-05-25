@@ -1,6 +1,6 @@
 {
   "name": "stalkwatch",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A bot that tells you your rank, and how shitty are you",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "discord.js": "^11.3.2",
+    "chalk": "^2.4.0",
     "snekfetch": "^4.0.0",
-    "winston": "^2.4.2"
+    "winston": "^2.4.2",
+    "moment": "^2.22.1",
+    "express": "^4.15.5",
+    "sqlite3": "^4.0.0"
   },
   "engines": {
     "node": "8.x"
